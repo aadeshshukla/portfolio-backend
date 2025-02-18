@@ -25,7 +25,7 @@ document.querySelector('.contact-form').addEventListener('submit', async functio
     const email = this.querySelector('input[type="email"]').value;
     const message = this.querySelector('textarea').value;
 
-    const response = await fetch('http://localhost:5000/send-email', {
+    const response = await fetch('https://aadeshportfolio.onrender.com/send-email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
