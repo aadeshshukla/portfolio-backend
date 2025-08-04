@@ -271,3 +271,123 @@ footer {
         max-width: 150px;
     }
 }
+/* =============================================== */
+/* --- MOBILE OPTIMIZATIONS & FIXES --- */
+/* =============================================== */
+
+/* 1. Give the browser a hint to optimize our animation elements */
+.reveal {
+    will-change: transform, opacity;
+}
+
+/* Apply these styles ONLY on screens smaller than 768px (tablets and phones) */
+@media (max-width: 768px) {
+
+    /* 2. Make the scroll animations more subtle on mobile */
+    .reveal {
+        /* Was 30px, now reduced for a smoother feel on small screens */
+        transform: translateY(20px);
+    }
+    
+    /* 3. Fix the contact form overflow issue */
+    .contact-content {
+        /* Was 2rem, now reduced to leave more space for the form */
+        padding: 2rem 1rem;
+    }
+
+    /* 4. Ensure form inputs don't have unexpected widths */
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%; /* Explicitly set width to fill the container */
+    }
+}
+/* =============================================== */
+/* --- SKILLS & CERTIFICATES STYLES --- */
+/* =============================================== */
+
+#skills {
+    background-color: #f8f9fa; /* A slightly different light background */
+}
+
+.skills-certificates-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.subsection-title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+}
+
+/* --- Styling for the skill tags --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.skill-tag {
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+/* --- Styling for the certificate cards --- */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.certificate-card {
+    background: var(--white-color);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.certificate-card h4 {
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.certificate-card .issuer {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.credential-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.credential-link:hover {
+    color: var(--secondary-color);
+}
