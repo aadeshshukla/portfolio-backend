@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -19,44 +20,38 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Aadesh Shukla</h1>
-            <p>Aspiring Developer</p>
+            <h1 class="reveal">Aadesh Shukla</h1>
+            <p class="reveal" data-delay="200">Aspiring Developer</p>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title reveal">About Me</h2>
         <div class="about-content">
-            <img src="portf.jpg" alt="Aadesh Shukla" class="profile-img">
-            <p>"Hi, I’m Aadesh shukla, a passionate computer science student and aspiring developer with a love for coding and problem-solving. Over the past few years, I’ve gained hands-on experience in C , Python , java , (html,css,js), working on projects that involve web development , problem-solving ,OOPs concept, DBMS,. I’m constantly expanding my skill set and learning new technologies to build innovative solutions. When I’m not coding, I enjoy experimenting with new programming challenges, exploring tech trends, and collaborating with others on open-source projects. I’m always eager to connect with fellow developers and tech enthusiasts to share ideas and work on exciting projects!"
+            <img src="portf.jpg" alt="Aadesh Shukla" class="profile-img reveal">
+            <p class="reveal" data-delay="200">"Hi, I’m Aadesh shukla, a passionate computer science student and aspiring developer with a love for coding and problem-solving. Over the past few years, I’ve gained hands-on experience in C , Python , java , (html,css,js), working on projects that involve web development , problem-solving ,OOPs concept, DBMS,. I’m constantly expanding my skill set and learning new technologies to build innovative solutions. When I’m not coding, I enjoy experimenting with new programming challenges, exploring tech trends, and collaborating with others on open-source projects. I’m always eager to connect with fellow developers and tech enthusiasts to share ideas and work on exciting projects!"
             </p>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title reveal">My Projects</h2>
         <div class="projects-grid">
-            <!-- Project Cards -->
-            <div class="project-card">
+            <div class="project-card reveal">
                 <img src="project1.jpg" alt="Project 1" style="width:100%">
                 <div class="project-info">
                     <h3>Project 1</h3>
                     <p>Project description goes here</p>
                 </div>
             </div>
-            <!-- Add more project cards -->
-        </div>
+            </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-content">
+        <h2 class="section-title reveal">Contact Me</h2>
+        <div class="contact-content reveal">
             <form class="contact-form">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
@@ -66,9 +61,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="social-links">
+        <div class="social-links reveal">
             <a href="https://github.com/aadeshshukla" target="_blank">
                 <i class="fab fa-github"></i>
             </a>
@@ -79,12 +73,9 @@
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
-        <p>&copy; 2025 Aadesh Shukla. All rights reserved.</p>
+        <p class="reveal" data-delay="200">&copy; 2025 Aadesh Shukla. All rights reserved.</p>
     </footer>
-    
 
-    <script src="script.js">
-       
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

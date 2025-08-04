@@ -3,6 +3,7 @@
     --secondary-color: #27ae60;
     --dark-color: #173d64;
     --light-color: #ecf0f1;
+    --white-color: #ffffff;
 }
 
 * {
@@ -11,21 +12,32 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: var(--dark-color);
+html {
+    scroll-behavior: smooth;
 }
 
-/* Navigation */
+body {
+    /* UPDATED FONT */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--white-color);
+}
+
+/* --- Navigation Upgrade --- */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(253, 253, 254, 0.95);
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
     z-index: 1000;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Scrolled state for Navbar */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-links {
@@ -42,11 +54,29 @@ body {
     text-decoration: none;
     color: var(--dark-color);
     font-weight: 500;
-    transition: color 0.3s;
+    position: relative; /* Needed for the pseudo-element */
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Underline effect on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.4s ease;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 /* Hero Section */
@@ -59,29 +89,37 @@ body {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('1.jpg');
     background-size: cover;
     background-position: center;
-    color: white;
+    color: var(--white-color);
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
 }
 
 /* Sections */
 section {
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
+    overflow: hidden; /* Prevents scrollbars during animation */
 }
 
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
-/* About */
+/* About Section */
 .about-content {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #f5f5f5;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
@@ -89,89 +127,106 @@ section {
 }
 .profile-img {
     width: 100%;
-    max-width: 200px; /* Adjust as needed */
+    max-width: 200px;
     height: auto;
     border-radius: 50%;
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    .profile-img {
-        max-width: 150px;
-    }
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-@media (max-width: 480px) {
-    .profile-img {
-        max-width: 120px;
-    }
-}
-
-
-
-
-/* Projects */
+/* Projects Section */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    background-color: #e3f2fd;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .project-card {
-    background: white;
+    background: var(--white-color);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.project-card img {
+    display: block;
+}
+.project-info {
+    padding: 1.5rem;
 }
 
-/* Contact */
+/* Contact Section */
 .contact-content {
-    background-color: #fff3e0;
     max-width: 600px;
     margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
 }
 
 .contact-form {
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 input, textarea {
     padding: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Focus effect for form inputs --- */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
 }
 
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
     background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
 footer {
     background-color: var(--dark-color);
-    color: white;
+    color: var(--white-color);
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
 }
 
 .social-links {
@@ -179,24 +234,40 @@ footer {
 }
 
 .social-links a {
-    color: white;
+    color: var(--white-color);
     font-size: 1.5rem;
     margin: 0 1rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
     color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* --- ANIMATION CLASSES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
     .about-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .profile-img {
+        margin: 0 auto;
+        max-width: 150px;
     }
 }
